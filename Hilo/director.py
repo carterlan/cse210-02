@@ -48,8 +48,15 @@ class Director:
             return
 
         print(f'The card is: {self.card}')
-        guess = input("Higher or lower? [h/l] ")
         
+        guess = input("Higher or lower? [h/l] ")
+
+        if guess == 'h':
+            self.card.high()
+        
+        if guess == 'l':
+            self.card.low()
+ 
        
     def do_updates(self):
         """Updates the player's score.
@@ -59,8 +66,7 @@ class Director:
         """
         if not self.is_playing:
             return 
-
-        
+    
         card = self.card
         self.score += card.points 
         self.total_score += self.score
