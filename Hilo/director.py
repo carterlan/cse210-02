@@ -49,6 +49,7 @@ class Director:
             return
         
         print(f'The card is: {self.card.card_1}')
+        self.guess = input("Higher or lower? [h/l] ")
 
        
     def do_updates(self):
@@ -59,11 +60,15 @@ class Director:
         """
         if not self.is_playing:
             return 
+
+        print('test')
     
         if self.guess == 'h':
+            print('working high')
             self.card.high()
         
         if self.guess == 'l':
+            print('working low')
             self.card.low()
 
     def do_outputs(self):
@@ -87,6 +92,6 @@ class Director:
 
         new_round = input('Play again? [y/n] ')
         self.is_playing = (new_round == 'y')
-        if new_round == 'y':
-            self.guess = input("Higher or lower? [h/l] ")
-            self.do_updates()
+        #if new_round == 'y':
+            #self.guess = input("Higher or lower? [h/l] ")
+            #self.do_updates()
