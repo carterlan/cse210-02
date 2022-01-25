@@ -1,5 +1,5 @@
 from game.card import Card
-import random
+#import random
 
 class Director:
     """A person who directs the game. 
@@ -20,7 +20,7 @@ class Director:
             self (Director): an instance of Director.
         """
 
-        self.card = random.randint(1,13)
+        self.card = []
         self.is_playing = True
         self.score = 0
         self.total_score = 300
