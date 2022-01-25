@@ -1,3 +1,4 @@
+from tkinter import Y
 from Card.card import Card
 #import random
 
@@ -22,8 +23,7 @@ class Director:
 
         self.card = Card()
         self.is_playing = True
-        self.score = 0
-        self.total_score = 0
+        self.total_score = 300
         self.guess =''
 
 
@@ -60,16 +60,15 @@ class Director:
         """
         if not self.is_playing:
             return 
-
-        print('test')
     
         if self.guess == 'h':
-            print('working high')
             self.card.high()
         
         if self.guess == 'l':
-            print('working low')
             self.card.low()
+
+        self.total_score += self.card.points
+        
 
     def do_outputs(self):
         """Displays the new card and the score. Also asks the player if they want to play again. 
@@ -80,18 +79,16 @@ class Director:
         if not self.is_playing:
             return
         
-        card = self.card
+        
 
         print(f"Next card was: {self.card.card_2}")
         print(f"Your score is: {self.total_score}\n")
+        self.card.show_card()
         
-        self.is_playing == (self.score > 0)
+        self.is_playing = (self.total_score > 0)
 
         if not self.is_playing:
             return
 
         new_round = input('Play again? [y/n] ')
         self.is_playing = (new_round == 'y')
-        #if new_round == 'y':
-            #self.guess = input("Higher or lower? [h/l] ")
-            #self.do_updates()
