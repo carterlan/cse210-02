@@ -1,4 +1,4 @@
-from game.card import Card
+from Card.card import Card
 #import random
 
 class Director:
@@ -20,10 +20,11 @@ class Director:
             self (Director): an instance of Director.
         """
 
-        self.card = []
+        self.card = Card()
         self.is_playing = True
         self.score = 0
-        self.total_score = 300
+        self.total_score = 0
+        self.guess =''
 
 
     def start_game(self):
@@ -46,17 +47,9 @@ class Director:
         """
         if not self.is_playing:
             return
-
-        print(f'The card is: {self.card}')
         
-        guess = input("Higher or lower? [h/l] ")
+        print(f'The card is: {self.card.card_1}')
 
-        if guess == 'h':
-            self.card.high()
-        
-        if guess == 'l':
-            self.card.low()
- 
        
     def do_updates(self):
         """Updates the player's score.
@@ -67,9 +60,11 @@ class Director:
         if not self.is_playing:
             return 
     
-        card = self.card
-        self.score += card.points 
-        self.total_score += self.score
+        if self.guess == 'h':
+            self.card.high()
+        
+        if self.guess == 'l':
+            self.card.low()
 
     def do_outputs(self):
         """Displays the new card and the score. Also asks the player if they want to play again. 
@@ -82,7 +77,7 @@ class Director:
         
         card = self.card
 
-        print(f"Next card was: {card}")
+        print(f"Next card was: {self.card.card_2}")
         print(f"Your score is: {self.total_score}\n")
         
         self.is_playing == (self.score > 0)
@@ -90,5 +85,8 @@ class Director:
         if not self.is_playing:
             return
 
-        new_round = ('Play again? [y/n] ')
+        new_round = input('Play again? [y/n] ')
         self.is_playing = (new_round == 'y')
+        if new_round == 'y':
+            self.guess = input("Higher or lower? [h/l] ")
+            self.do_updates()

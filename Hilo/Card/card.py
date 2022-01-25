@@ -13,13 +13,15 @@ class Card:
         card_2 = random.randint(1,13)
 
     def low(self):
+        #If player choses low
         if self.card_1 < self.card_2:
             return self.points + 100
         
         if self.card_1 > self.card_2:
-            return self.ppints - 300
+            return self.points - 300
     
     def high (self):
+        #If player choses high
         if self.card_1 > self.card_2:
             return self.points + 100
         
