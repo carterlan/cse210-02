@@ -47,11 +47,11 @@ class Director:
         """
         if not self.is_playing:
             return
-        
-        print(f'The card is: {self.card.card_1}')
+
+        print(f'The card is: {self.card.show_card()}')
         self.guess = input("Higher or lower? [h/l] ")
 
-       
+  
     def do_updates(self):
         """Updates the player's score.
 
@@ -78,12 +78,12 @@ class Director:
         """
         if not self.is_playing:
             return
-        
-        
 
-        print(f"Next card was: {self.card.card_2}")
-        print(f"Your score is: {self.total_score}\n")
         self.card.show_card()
+        self.card.rotation()
+        print(f"Next card was: {self.card.card_1}")
+        print(f"Your score is: {self.total_score}\n")
+        
         
         self.is_playing = (self.total_score > 0)
 
