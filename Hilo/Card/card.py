@@ -3,14 +3,17 @@ import random
 class Card:
 
     def __init__(self):
-        self.card_1 = 0
-        self.card_2 = 0
+        self.card_1 = random.randint(1,13)
+        self.card_2 = random.randint(1,13)
         self.points = 0
     
     def show_card(self):
-
+        self.card_1 = self.card_2
         self.card_2 = random.randint(1,13)
+<<<<<<< HEAD
         return self.card_2 #This seemed to be the issue
+=======
+>>>>>>> ece0df45784e2a09c2ecef104c63620bc3b70551
 
     def low(self):
         #If player choses low
@@ -24,5 +27,5 @@ class Card:
         self.points = 100 if self.card_1 < self.card_2 else -75
 
       
-    def rotation (self):
-        self.card_1 = self.card_2
+    #def rotation (self):
+        #self.card_1 = self.card_2
