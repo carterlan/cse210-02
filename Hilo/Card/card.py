@@ -10,10 +10,7 @@ class Card:
     def show_card(self):
         self.card_1 = self.card_2
         self.card_2 = random.randint(1,13)
-<<<<<<< HEAD
         return self.card_2 #This seemed to be the issue
-=======
->>>>>>> ece0df45784e2a09c2ecef104c63620bc3b70551
 
     def low(self):
         #If player choses low
