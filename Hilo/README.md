@@ -51,5 +51,5 @@ root                    (project root folder)
 ---
 
 - Elizabeth Tellez (tel21004@byui.edu)
-- Landon Carter ()
-- Ederson Alejandro Villamizar-Escobar ()
+- Landon Carter (carteronelah@gmail.com)
+- Ederson Alejandro Villamizar-Escobar (vil21004@byui.edu)
